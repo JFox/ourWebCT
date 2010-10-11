@@ -22,11 +22,19 @@ public class Main {
     public static void main(String[] args) throws IOException, ScriptException {
         // TODO code application logic here
 
-	String nombre, apellidos;
-	int cedula;
+	
 
 	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+	EstudianteJpaController a = new EstudianteJpaController();
+
+	/*
+	
+	ESCRITURA
+
+	String nombre, apellidos;
+	int cedula;
+	 
 	System.out.println("Cedula: ");
 	cedula = Integer.parseInt(br.readLine());
 
@@ -36,17 +44,32 @@ public class Main {
 	System.out.println("Apellidos: ");
 	apellidos = br.readLine();
 
-	EstudianteJpaController a = new EstudianteJpaController();
-
+	
 	Estudiante e = new Estudiante(cedula, nombre, apellidos);
 
 	try{
 	    a.create(e);
 	}catch(Exception ex){
 	    System.out.println("Error. "+ ex.getMessage());
+	}*/
+
+	/*
+	LECTURA
+	Estudiante e = new Estudiante();
+
+	e = a.findEstudiante(1);
+
+
+	try{
+	    System.out.println(e.getNombre() + " " + e.getApellidos());
+	}catch(Exception ex){
+	    System.out.println("Error. "+ ex.getMessage());
 	}
+	*/
+
 
 
     }
 
 }
+
