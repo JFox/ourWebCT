@@ -1,0 +1,101 @@
+<%@page import="java.util.List"%>
+<%@page import="enterprise.web_jpa_war.entity.Curso"%>
+<%@page import="enterprise.web_jpa_war.entity.CursoJpaController"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" 
+    prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Zion Narrows  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20102110
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Zion Narrows   by Free CSS Templates</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#">OurWebCT   </a></h1>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+		<ul>
+			<li class="current_page_item"><a href="#">Home</a></li>
+			<li><a href="#">Courses</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Log Out</a></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+			<div class="post">
+				<h2 class="title"><a href="#">My Courses   </a></h2>
+				<div class="entry">
+				<p>&nbsp;</p>
+					<p>
+                                            <%
+                                                int usuario = (Integer)session.getAttribute("currentUser");
+                                                CursoJpaController c = new CursoJpaController();
+                                                List Curso = c.getEntityManager().createQuery("SELECT c FROM Curso c").getResultList();
+
+    %>
+                                            <table>
+                                                <c:forEach var="it" items="Curso">
+                                                    <tr>
+                                                        <td>${it}</td>
+                                                    </tr>                                                
+                                                </c:forEach>
+                                            </table>
+
+                                        </p>
+				</div>
+			</div>
+			
+			
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Courses List</h2>
+					<p>In this page you can check your all the courses you are checked in.</p>
+				</li>
+				<li>
+					<h2>Hot Links</h2>
+					<ul>
+						<li><a href="#">Show My Courses</a></li>
+					</ul>
+				</li>
+				
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2010 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
